@@ -1,0 +1,70 @@
+1. Printing multiples of five
+
+FOR i from 1 to 100:
+    IF i MOD 5 = 0 THEN:
+        PRINT number
+    END IF
+END FOR
+
+-----------------
+
+2. Printing even numbers with user defined stopping point
+
+GET stopping_point AS INT
+SET counter to 0
+
+WHILE counter <= stopping_point / 2:
+    PRINT counter * 2
+    INCREMENT counter by 1
+END WHILE
+
+-----------------
+
+3.  Get 5 inputs, find & print average, min, and max
+
+SET num_array to empty array
+SET counter to 0 
+
+WHILE counter < 5:
+    GET num AS INT
+    APPEND num to num_array
+    INCREMENT counter by 1
+END WHILE
+
+SET sum_of_nums to (SUM of num_array)
+SET average to (sum_of_nums / 5)
+
+SET max_value to (MAX of num_array) 
+SET min_value to (MIN of num_array)
+
+PRINT average, min_value, max_value
+
+-----------------
+
+4.Reads in three numbers and writes them all in sorted order.
+
+SET num_array to empty array
+SET counter to 0
+
+WHILE counter < 3:
+    GET user_input AS INT
+    APPEND user_input to num_array
+    INCREMENT counter by 1
+END WHILE
+
+PRINT SORTED num_array
+
+-----------------
+
+5.Calculate a running sum. A user will enter numbers that will be added to the sum and 
+when a negative number is encountered, stop adding numbers and print out result 
+
+GET user_input AS INT
+SET counter to 0
+
+WHILE user_input >= 0:
+    INCREMENT counter by user_input
+    GET user_input as INT
+END WHILE
+
+PRINT counter
