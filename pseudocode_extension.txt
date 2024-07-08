@@ -1,0 +1,78 @@
+3. Get 5 inputs, find & print average, min, and max
+
+FUNCTION my_sum(num_array):
+    SET local_count to 0
+    FOR EACH elem in num_array:
+        INCREMENT local_counter by elem
+    END FOR
+    RETURN local_counter
+END FUNCTION
+
+FUNCTION my_max(num_array):
+    SET max_value to first element of num_array
+    FOR EACH elem in num_array:
+        IF elem > max_value THEN:
+            SET max_value to elem
+        END IF
+    END FOR
+    RETURN max_value
+END FUNCTION
+
+FUNCTION my_min(num_array):
+    SET min_value to first element of num_array
+    FOR EACH elem in num_array:
+        IF elem < max_value THEN:
+            SET min_value to elem
+        END IF
+    END FOR
+    RETURN min_value
+END FUNCTION
+
+SET num_array to empty array
+SET counter to 0 
+
+WHILE counter < 5:
+    GET num AS INT
+    APPEND num to num_array
+    INCREMENT counter by 1
+END WHILE
+
+SET num_sum to CALL my_sum with num_array
+SET average to num_sum / 5
+
+SET max_value to CALL my_max with num_array
+SET min_value to CALL my_min with num_array
+
+PRINT average, min_value, max_value
+
+-----------------
+
+4. Reads in three numbers and writes them all in sorted order.
+
+FUNCTION my_sort(num_array):
+    SET n to LENGTH of num_array
+    FOR i in RANGE of n:
+        SET sorted to FALSE
+        FOR j from 0 to n-i-1:
+            IF num_array[j] > num_array[j + 1] THEN:
+                SET sorted to TRUE
+                SWAP num_array[j] and num_array[j + 1]
+            END IF
+        END FOR
+        IF sorted = FALSE THEN:
+            RETURN num_array
+        END IF
+    END FOR
+END FUNCTION
+
+SET num_array to empty array
+SET counter to 0
+
+WHILE counter < 3:
+    GET user_input AS INT
+    APPEND user_input to num_array
+    INCREMENT counter by 1
+END WHILE
+
+SET sorted_num_array to CALL my_sort with num_array
+PRINT sorted_num_array
